@@ -66,12 +66,11 @@ SELECT
     count(r.rental_id) as most_rented	
 FROM sakila.film f
 JOIN sakila.inventory i ON i.film_id = f.film_id
-JOIN sakila.rental r ON r.inventory_id = i.film_id = i.inventory_id
+JOIN sakila.rental r ON r.inventory_id = i.inventory_id
 group by f.title
-order by most_rented desc
+order by most_rented desc LIMIT 1
 ;
 
--- NOTE:I Don´t know if this is right, but the thought seemed correct to me. But the movie is not the Bucket Brotherhood
 
 
 
